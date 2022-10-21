@@ -1,2 +1,6 @@
 node_modules
 phone.js
+create_person.rest
+create_note.rest
+get_all_notes.rest
+get_persons.rest
