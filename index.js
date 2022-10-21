@@ -7,7 +7,7 @@ const app = express()
 app.use(express.json())
 app.use(cors())
 app.use(morgan('tiny'))
-app.use(express.static(path.join(__dirname, '/build')));
+app.use(express.static('build'))
 
 let notes = [
   {
@@ -30,11 +30,13 @@ let notes = [
   }
 ]
 
-
+app.use(express.static(path.join(__dirname, 'client/build')));
 app.get('*', (req, res) => {
-  res.sendFile(path.join(__dirname, '/build/index.html'));
+  res.sendFile(path.join(__dirname, '/client/public/index.html'));
 })
-
+app.get('/', (request, response) => {
+    response.send('<h1>Hello World!</h1>')
+  })
   
 app.get('/api/notes', (request, response) => {
 response.json(notes)
