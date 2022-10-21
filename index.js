@@ -30,10 +30,6 @@ let notes = [
   }
 ]
 
-app.use(express.static(path.join(__dirname, 'client/build')));
-app.get('*', (req, res) => {
-  res.sendFile(path.join(__dirname, '/client/public/index.html'));
-})
 app.get('/', (request, response) => {
     response.send('<h1>Hello World!</h1>')
   })
